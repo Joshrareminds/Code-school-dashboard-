@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 52" role="img" aria-label="Rareminds">
+  <g fill="none" stroke="#197b72" stroke-width="3" stroke-linecap="round">
+    <path d="M17 34c-8-9-3-23 8-25 9-2 16 7 13 16-2 7-9 11-16 12"/>
+    <path d="M25 43c-1-8 2-16 9-21M9 18l7 2M39 9l-1 7M12 34l8-2"/>
+  </g>
+  <text x="52" y="34" fill="#173b42" font-family="Arial, sans-serif" font-size="26" font-weight="700">rareminds</text>
+</svg>

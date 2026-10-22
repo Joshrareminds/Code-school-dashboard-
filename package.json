@@ -1,0 +1,9 @@
+{
+  "name": "school-dashboard",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix dashboard-app run dev",
+    "build": "npm --prefix dashboard-app run build",
+    "preview": "npm --prefix dashboard-app run preview"
+  }
+}

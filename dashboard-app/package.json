@@ -1,0 +1,12 @@
+{
+  "name": "school-dashboard-workspace",
+  "private": true,
+  "workspaces": [
+    "dashboard-app"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=school-showcase-dashboard --",
+    "build": "npm run build --workspace=school-showcase-dashboard --",
+    "preview": "npm run preview --workspace=school-showcase-dashboard --"
+  }
+}

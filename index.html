@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School Showcase Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+// If a file isn't in ./assets, load that exact image from the Figma link instead (links valid ~7 days).
+(function () {
+  var MAIN = 'https://www.figma.com/api/mcp/asset/eaaea51a-b04d-4f5c-9ac9-2cae74e65572/';
+  var MENU = 'https://www.figma.com/api/mcp/asset/27fd4732-c6fa-4c92-842c-ff0b0ec6522e/';
+  var menuFiles = '0bfa6 a7591 2230d 1766f 524ee 8ab6c 645f2 5fc27 27a0a 7da35 56ca9 25e42 8baae 6321a'.split(' ');
+  window.addEventListener('error', function (e) {
+    var t = e.target;
+    if (!t || t.tagName !== 'IMG' || t.dataset.fb) return;
+    var m = /assets\/([0-9a-f]+\.(?:png|svg))$/.exec(t.getAttribute('src') || '');
+    if (!m) return;
+    t.dataset.fb = '1';
+    t.src = (menuFiles.indexOf(m[1].split('.')[0]) > -1 ? MENU : MAIN) + m[1];
+  }, true);
+})();
+</script>
+</head>
+<body>
+<div class="canvas" id="top">
+
+  <!-- Backgrounds (exact Figma layers) -->
+  <div class="hero"><img src="assets/b4ecc.png" alt=""></div>
+  <div class="glow glow1"><img src="assets/573b7.svg" alt=""></div>
+  <div class="glow glow2"><img src="assets/30ccb.svg" alt=""></div>
+  <div class="hero-fade"></div>
+
+  <!-- Header -->
+  <header class="hdr">
+    <div class="hdr-bar"></div>
+    <img class="hdr-logo" src="assets/0778f.png" alt="Rareminds">
+    <div class="hdr-right">
+      <button class="bell" aria-label="Notifications"><img src="assets/27e52.svg" alt=""></button>
+      <button class="user">
+        <img class="u-avatar" src="assets/a724b.svg" alt="">
+        <span class="u-text"><span class="u-name">Admin User</span><span class="u-role">College Admin</span></span>
+        <img class="u-chev" src="assets/29a24.svg" alt="">
+      </button>
+    </div>
+    <span class="menu-lines"><img src="assets/3fd99.svg" alt=""></span>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"></button>
+  </header>
+
+  <!-- Title row -->
+  <section class="title-row">
+    <div class="t-left">
+      <h1>School Showcase Dashboard</h1>
+      <p>A strategic school-level analysis of student growth beyond academic marks</p>
+    </div>
+    <div class="t-right">
+      <div class="box date"><span>01 May 2025 – 30 May 2025</span><img src="assets/f1aad.svg" alt=""></div>
+      <button class="box export" id="exportBtn"><img src="assets/4c2df.svg" alt=""><span>Export Report</span></button>
+    </div>
+  </section>
+
+  <main class="content">
+
+    <!-- School summary -->
+    <section class="card summary" id="snapshot">
+      <div class="sum-item"><img src="assets/0ac6e.svg" alt=""><div><small>School Name</small><strong>Sunrise International School</strong></div></div>
+      <i class="vd"></i>
+      <div class="sum-item"><img src="assets/95de5.svg" alt=""><div><small>City</small><strong>Bengaluru, Karnataka</strong></div></div>
+      <i class="vd"></i>
+      <div class="sum-item"><img src="assets/95d84.svg" alt=""><div><small>Grade / Group</small><strong>Grade 8</strong></div></div>
+      <i class="vd"></i>
+      <div class="sum-item"><img src="assets/44b3d.svg" alt=""><div><small>Students in Pilot</small><strong>120</strong></div></div>
+      <i class="vd"></i>
+      <div class="sum-item"><img src="assets/1920e.svg" alt=""><div><small>Pilot Duration</small><strong>30 Days</strong></div></div>
+      <i class="vd"></i>
+      <div class="sum-item"><img src="assets/f1c42.svg" alt=""><div><small>Prepared By</small><strong>Rareminds Team</strong></div></div>
+    </section>
+
+    <!-- KPIs -->
+    <section class="kpis" id="kpis"></section>
+
+    <!-- Row 3 -->
+    <section class="row row3">
+      <article class="card" id="growth">
+        <div class="head"><div class="head-top"><h2>Growth Area Coverage</h2><img src="assets/467d2.svg" alt=""></div><p>Key areas of student growth focused in this pilot</p></div>
+        <ul class="rows" id="growthList"></ul>
+      </article>
+
+      <article class="card" id="participation">
+        <div class="head"><div class="head-top"><h2>Participation Overview</h2><img src="assets/467d2.svg" alt=""></div><p>Engagement across key activities</p></div>
+        <div class="bars" id="bars">
+          <i class="gl" style="left:0"></i><i class="gl" style="left:99px"></i><i class="gl" style="left:198px"></i><i class="gl" style="left:297px"></i><i class="gl" style="left:395px"></i>
+        </div>
+        <div class="grow"></div>
+        <div class="note"><img src="assets/91bde.svg" alt=""><p>Participation data is used to understand engagement patterns and plan better opportunities for every child.</p></div>
+      </article>
+
+      <article class="card" id="voice">
+        <div class="head"><div class="head-top"><h2>Student Voice Moments</h2><img src="assets/467d2.svg" alt=""></div><p>A glimpse of what students shared</p></div>
+        <div class="donut-row">
+          <div class="donut">
+            <div class="arc" style="inset:0 .74% 55.48% 50.64%"><img src="assets/b12e9.svg" alt="Reflection Responses 105"></div>
+            <div class="arc" style="inset:43.42% 0 5.18% 64.18%"><img src="assets/cf041.svg" alt="Speaking Activity 95"></div>
+            <div class="arc" style="inset:66.55% 29.65% 0 7.21%"><img src="assets/f46e8.svg" alt="Group Discussion 110"></div>
+            <div class="arc" style="inset:24.41% 77.49% 25.87% 0"><img src="assets/f4b46.svg" alt="Career Curiosity 80"></div>
+            <div class="arc" style="inset:0 50.64% 67.47% 8.11%"><img src="assets/36599.svg" alt="Peer Appreciation 75"></div>
+            <b>105</b><span>Voices</span><span>Captured</span>
+          </div>
+          <ul class="legend" id="voiceLegend"></ul>
+        </div>
+        <div class="grow"></div>
+        <blockquote class="quotes">
+          <p>“I want to become more confident when I speak.”</p>
+          <p>“I enjoy helping my team and solving problems together.”</p>
+          <p>“I want to explore football and sports management.”</p>
+          <cite>– Student Voice Snippets (Anonymized)</cite>
+        </blockquote>
+      </article>
+    </section>
+
+    <!-- Row 4 -->
+    <section class="row row4">
+      <article class="card">
+        <div class="head"><div class="head-top"><h2>Communication Growth Themes</h2><img src="assets/467d2.svg" alt=""></div></div>
+        <ul class="rows big">
+          <li><span class="chip c30"><img src="assets/a19ea.svg" alt=""></span><p>Guided expression helps students feel safe.</p></li>
+          <li><span class="chip c30"><img src="assets/70b8f.svg" alt=""></span><p>Short speaking tasks encourage participation.</p></li>
+          <li><span class="chip c30"><img src="assets/901f8.svg" alt=""></span><p>Group context builds confidence.</p></li>
+          <li><span class="chip c30"><img src="assets/a7d94.svg" alt=""></span><p>Reflection improves clarity of thoughts.</p></li>
+          <li><span class="chip c30"><img src="assets/b1449.svg" alt=""></span><p>Repeated opportunities create growth.</p></li>
+        </ul>
+      </article>
+
+      <article class="card" id="activities">
+        <div class="head"><div class="head-top"><h2>Activities at a Glance</h2><img src="assets/467d2.svg" alt=""></div><p>Activities conducted in the pilot</p></div>
+        <div class="stack" id="stack"></div>
+        <ul class="rows acts" id="actList"></ul>
+        <div class="grow"></div>
+        <div class="total"><span>Total Activities</span><b>6</b></div>
+      </article>
+
+      <article class="card" id="parents">
+        <div class="head"><div class="head-top"><h2>Parent Visibility</h2><img src="assets/467d2.svg" alt=""></div></div>
+        <div class="compare">
+          <div class="col see">
+            <h3>Parents Usually See</h3>
+            <ul><li>Marks</li><li>Attendance</li><li>Event Photos</li><li>Certificates</li><li>PTM Comments</li><li>Exam Performance</li></ul>
+          </div>
+          <div class="col show">
+            <h3>This Pilot Helps Show</h3>
+            <ul><li>Communication Growth</li><li>Participation Journey</li><li>Student Voice Moments</li><li>Effort &amp; Reflection</li><li>Confidence in Expression</li><li>Collaboration &amp; Teamwork</li><li>Clarity &amp; Future Readiness</li></ul>
+          </div>
+        </div>
+        <div class="grow"></div>
+        <div class="note"><img src="assets/91bde.svg" alt=""><p>Parent Insight Summaries help parents see holistic growth beyond academic marks.</p></div>
+      </article>
+
+      <article class="card" id="next">
+        <div class="head"><div class="head-top"><h2>Next Step Recommendation</h2><img src="assets/467d2.svg" alt=""></div><p>Suggested actions for the school</p></div>
+        <ul class="rows steps">
+          <li><span class="chip c28"><img src="assets/83828.svg" alt=""></span><p>Continue short speaking activities weekly.</p></li>
+          <li><span class="chip c28"><img src="assets/85e72.svg" alt=""></span><p>Add reflection before presentations.</p></li>
+          <li><span class="chip c28"><img src="assets/ab1ba.svg" alt=""></span><p>Use roles in group tasks for participation.</p></li>
+          <li><span class="chip c28"><img src="assets/f8d02.svg" alt=""></span><p>Share Parent Insight Summaries regularly.</p></li>
+          <li><span class="chip c28"><img src="assets/7a6b1.svg" alt=""></span><p>Consider expanding to Grade 7 next term.</p></li>
+          <li><span class="chip c28"><img src="assets/c61a5.svg" alt=""></span><p>Teacher briefing on communication growth.</p></li>
+          <li><span class="chip c28"><img src="assets/b63b5.svg" alt=""></span><p>Parent orientation on Beyond Marks Impact.</p></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Thank-you banner -->
+    <section class="card banner" id="thanks">
+      <span class="chip c44"><img class="i22" src="assets/319b5.svg" alt=""></span>
+      <h2>Every Child Has More to Show</h2>
+      <i class="vd s28"></i>
+      <p>Thank you for partnering with Rareminds to create a future-ready learning environment.</p>
+      <div class="banner-brand">
+        <img src="assets/0778f.png" alt="Rareminds">
+        <small>GROWTH | CONFIDENCE | FUTURE READY</small>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Menu (open) -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="logo-plate"><img src="assets/0778f.png" alt="Rareminds"></div>
+  <div class="gap20"></div>
+  <nav class="nav">
+    <a href="#snapshot" class="active"><img src="assets/0bfa6.svg" alt=""><span>Executive Snapshot</span></a>
+    <a href="#growth"><img src="assets/a7591.svg" alt=""><span>Growth Areas</span></a>
+    <a href="#voice"><img src="assets/2230d.svg" alt=""><span>Student Voice</span></a>
+    <a href="#participation"><img src="assets/1766f.svg" alt=""><span>Participation</span></a>
+    <a href="#activities"><img src="assets/524ee.svg" alt=""><span>Activities</span></a>
+    <a href="#parents"><img src="assets/8ab6c.svg" alt=""><span>Parent Insights</span></a>
+    <a href="#next"><img src="assets/645f2.svg" alt=""><span>Teacher Resources</span></a>
+    <a href="#next"><img src="assets/5fc27.svg" alt=""><span>Industry Connect</span></a>
+    <a href="#thanks"><img src="assets/27a0a.svg" alt=""><span>Reports</span></a>
+    <a href="#top"><img src="assets/7da35.svg" alt=""><span>Settings</span></a>
+  </nav>
+  <div class="grow"></div>
+  <div class="quote-card">
+    <p>We don’t measure children against each other. We help every child grow in their own way.</p>
+    <img src="assets/56ca9.svg" alt="">
+  </div>
+  <div class="gap14"></div>
+  <div class="help-card">
+    <div class="help-title"><img src="assets/25e42.svg" alt=""><span>Need Help?</span></div>
+    <i class="hr"></i>
+    <div class="help-row"><img src="assets/8baae.svg" alt=""><span>hello@rareminds.org</span></div>
+    <i class="hr"></i>
+    <div class="help-row"><img src="assets/6321a.svg" alt=""><span>+91 98765 43210</span></div>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
