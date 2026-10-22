@@ -30,7 +30,7 @@ export default function App() {
   return (
     <div className="app-shell" id="top">
       <div className="canvas">
-        <div className="bg-collage" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}collage.png)` }} aria-hidden="true" />
+        <div className="bg-collage" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}collage.svg)` }} aria-hidden="true" />
         <div className="bg-glow glow-1" aria-hidden="true" />
         <div className="bg-glow glow-2" aria-hidden="true" />
         <div className="hero-fade" aria-hidden="true" />

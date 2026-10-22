@@ -39,7 +39,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid rgba(31, 138, 91, 0.4
 .canvas { position: relative; min-height: 100vh; overflow: hidden; padding-bottom: 69px; background: var(--page); }
 .hdr, .title-row, .content { position: relative; z-index: 1; }
 
-/* The image itself is set in App.jsx from public/collage.png (an export of the Figma layer
+/* The image itself is set in App.jsx from public/collage.svg (an export of the Figma layer
    "Minimalist Statistics Learning Collage 1"); it is shown at 28% opacity as in the design. */
 .bg-collage { position: absolute; z-index: 0; top: 0; left: 0; width: 100%; height: 810px; opacity: 0.28; pointer-events: none; background: center top / cover no-repeat; }
 .bg-glow { position: absolute; z-index: 0; width: 640px; height: 480px; pointer-events: none; background: radial-gradient(closest-side, rgba(31, 138, 91, 0.16), rgba(31, 138, 91, 0)); }
